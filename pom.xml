@@ -12,7 +12,7 @@
 
     <groupId>com.slamm.android</groupId>
     <artifactId>initial-test-parent</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>initial-test - Parent</name>
 
@@ -105,10 +105,10 @@
                         <archive>${project.build.directory}/${project.build.finalName}.${project.packaging}</archive>
                         <verbose>true</verbose>
                         <certs>true</certs>
-                        <keystore>${project.basedir}/initial-test-key.keystore</keystore>
-                        <alias>initial_test</alias>
-                        <storepass>slammrocksit</storepass>
-                        <keypass>slammrocksit</keypass>
+                        <keystore>${keystore.location}</keystore>
+                        <alias>${keystore.alias}</alias>
+                        <storepass>${keystore.password}</storepass>
+                        <keypass>${keystore.keypass}</keypass>
                     </configuration>
                 </plugin>
                 <plugin>
