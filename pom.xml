@@ -6,7 +6,7 @@
     	<!-- <developerConnection>git:git://github.com/whipplejk/initial-test.git</developerConnection> -->
     	
     	<connection>scm:git:git@github.com:whipplejk/initial-test.git</connection>
-		<url>scm:git:git@github.com:whipplejk/initial-test.gitt</url>
+		<url>scm:git:git@github.com:whipplejk/initial-test.git</url>
 		<developerConnection>scm:git:git@github.com:whipplejk/initial-test.git</developerConnection>
     </scm>
 
