@@ -4,7 +4,10 @@
 
 	<scm>
     	<!-- <developerConnection>git:git://github.com/whipplejk/initial-test.git</developerConnection> -->
-    	<developerConnection>git:ssh://git@github.com:whipplejk/initial-test.git</developerConnection>
+    	
+    	<connection>scm:git:git@github.com:whipplejk/initial-test.git</connection>
+		<url>scm:git:git@github.com:whipplejk/initial-test.gitt</url>
+		<developerConnection>scm:git:git@github.com:whipplejk/initial-test.git</developerConnection>
     </scm>
 
     <groupId>com.slamm.android</groupId>
