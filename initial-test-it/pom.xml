@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.slamm.android</groupId>
+    <artifactId>initial-test-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>initial-test-it</artifactId>
+  <packaging>apk</packaging>
+  <name>initial-test-it - Integration tests</name>
+
+  <properties>
+      <!--
+        When not running a release, we are deploying the plain artifact (so no classifier)
+        This is overridden during the release.
+      -->
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.google.android</groupId>
+      <artifactId>android</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.google.android</groupId>
+      <artifactId>android-test</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.slamm.android</groupId>
+      <artifactId>initial-test</artifactId>
+      <type>apk</type>
+      <version>0.0.1-SNAPSHOT</version>
+      <classifier>${zipaligned-classifier}</classifier> <!--  classifier set according to the ran profile -->
+    </dependency>
+    <dependency>
+      <groupId>com.slamm.android</groupId>
+      <artifactId>initial-test</artifactId>
+      <type>jar</type>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+       <groupId>junit</groupId>
+       <artifactId>junit</artifactId>
+     </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+        <artifactId>android-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <version>3.0.0</version>
+      </plugin>
+    </plugins>
+    <pluginManagement>
+    	<plugins>
+    		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+    		<plugin>
+    			<groupId>org.eclipse.m2e</groupId>
+    			<artifactId>lifecycle-mapping</artifactId>
+    			<version>1.0.0</version>
+    			<configuration>
+    				<lifecycleMappingMetadata>
+    					<pluginExecutions>
+    						<pluginExecution>
+    							<pluginExecutionFilter>
+    								<groupId>
+    									com.jayway.maven.plugins.android.generation2
+    								</groupId>
+    								<artifactId>
+    									android-maven-plugin
+    								</artifactId>
+    								<versionRange>
+    									[3.0.0,)
+    								</versionRange>
+    								<goals>
+    									<goal>proguard</goal>
+    								</goals>
+    							</pluginExecutionFilter>
+    							<action>
+    								<ignore></ignore>
+    							</action>
+    						</pluginExecution>
+    					</pluginExecutions>
+    				</lifecycleMappingMetadata>
+    			</configuration>
+    		</plugin>
+    	</plugins>
+    </pluginManagement>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>release</id>
+      <properties>
+        <!--
+          When running a release, we must deployed the final artifact (signed and zipaligned).
+        -->
+        <zipaligned-classifier>aligned</zipaligned-classifier>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-jarsigner-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>sign-application-it-apk</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+            <artifactId>android-maven-plugin</artifactId>
+            <version>3.0.0</version>
+            <configuration>
+              <sign>
+                <debug>false</debug>
+              </sign>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>
