@@ -3,7 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
 
 	<scm>
-    	<developerConnection>git:git://github.com/whipplejk/initial-test.git</developerConnection>
+    	<!-- <developerConnection>git:git://github.com/whipplejk/initial-test.git</developerConnection> -->
+    	<developerConnection>git:ssh://git@github.com:whipplejk/initial-test.git</developerConnection>
     </scm>
 
     <groupId>com.slamm.android</groupId>
