@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.slamm.android</groupId>
     <artifactId>initial-test-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
   </parent>
 
   <artifactId>initial-test</artifactId>
