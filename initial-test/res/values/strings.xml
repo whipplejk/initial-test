@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Initial Test for App</string>
+    <string name="hello">Initial Test for App That is Built</string>
     <string name="app_name">Test for App</string>
 </resources>
